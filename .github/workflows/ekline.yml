@@ -1,20 +1,17 @@
+name: EkLine
+on: [pull_request]
 
-   ```yaml
-   name: EkLine
-   on: [pull_request]
-
-   jobs:
-     docs:
-       runs-on: ubuntu-latest
-       permissions:
-         contents: read
-         pull-requests: write
-       steps:
-         - uses: actions/checkout@v4
-         - uses: ekline-io/ekline-github-action@v6
-           with:
-             content_dir: docs
-             ek_token: ${{ secrets.EK_TOKEN }}
-             github_token: ${{ secrets.GITHUB_TOKEN }}
-             reporter: github-pr-review
-   ```
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ekline-io/ekline-github-action@v6
+        with:
+          content_dir: docs
+          ek_token: ${{ secrets.EK_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          reporter: github-pr-review
